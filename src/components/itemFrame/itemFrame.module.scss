@@ -1,0 +1,8 @@
+.grid{
+    display: grid;
+    grid-gap: 40px;
+    padding: 0 20px 190px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 390px));
+    overflow: hidden;
+    justify-content: center;
+}

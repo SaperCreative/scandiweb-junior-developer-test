@@ -1,0 +1,133 @@
+.grid{
+    width: calc(100% - 200px);
+    display: grid;
+    padding: 80px 100px 50px 100px;
+    grid-template-columns: 80px 1fr 300px;
+    grid-column-gap: 20px;
+    .imgList{
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 80px;
+            height: 80px;
+            margin-bottom: 40px;
+            object-fit: cover;
+            user-select: none;
+            cursor: pointer;
+        }
+    }
+    .imgProduct{
+        display: flex;
+        justify-content: center;
+        height: 70%;
+        user-select: none;
+        img{
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .descProduct{
+        color: #1D1F22;
+        .descTitle{
+            font-size: 30px;
+            margin-bottom: 40px;
+            span{
+                width: 100%;
+                display: block;
+            }
+            &>span:nth-child(1){
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+            &>span:nth-child(2){
+                font-weight: 400;
+            }
+        }
+        .descAttr{
+            span{
+                font-size: 18px;
+                font-weight: 600;
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+            }
+            .attrSelect{
+                width: 100%;
+                display: flex;
+                user-select: none;
+                cursor: pointer;
+                .attrColor{
+                    position: relative;
+                    width: 32px;
+                    height: 32px;
+                    float: left;
+                    margin-right: 10px;
+                    
+                }
+                .colorSelected{
+                    position: relative;
+                    z-index: -1;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        padding: 1px;
+                        width: 100%;
+                        height: 100%;
+                        left: -3px;
+                        top: -3px;
+                        background: #ffffff00;
+                        border: 2px solid #5ECE7B;
+                    }
+                }
+                .textSelected{
+                    background-color: #000;
+                    color: #fff;
+                }
+                span{
+                    display: block;
+                    width: 50px;
+                    padding: 10px 0;
+                    float: left;
+                    margin-right: 10px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    border: 1px solid #000;
+                    text-align: center;
+                }
+            }
+        }
+        .descPrice{
+            margin: 37px 0 35px 0;
+            font-weight: 700;
+            width: 100%;
+            span{
+                width: 100%;
+                display: block;
+                &:nth-child(1){
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+                &:nth-child(2){
+                    font-size: 24px;
+                }
+            }
+        }
+        .addBtn{
+            width: 100%;
+            padding: 15px 0;
+            background-color: #5ECE7B;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 35px;
+            user-select: none;
+            cursor: pointer;
+        }
+        .desc{
+            width: 100%;
+            font-size: 16px;
+            line-height: 160%;
+        }
+    
+    }
+}
