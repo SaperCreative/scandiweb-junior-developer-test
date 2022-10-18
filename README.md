@@ -3,6 +3,9 @@
 
 For proper usage of this project you need to clone GraphQL from this [link](https://github.com/scandiweb/junior-react-endpoint).
 
+## [Project preview](https://heroku-ascandi-app.herokuapp.com)
+
+
 # Create project
 
 ### Installation
