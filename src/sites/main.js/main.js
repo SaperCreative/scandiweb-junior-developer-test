@@ -3,13 +3,30 @@ import styles  from './main.module.scss'
 import Nav from '../../components/nav/nav';
 import ItemFrame from '../../components/itemFrame/itemFrame';
 import MiniCart from '../../components/miniCart/miniCart';
+import { client } from "../../index";
+import { GET_CATEGORY_NAMES } from "../../utils/queries";
+import { connect } from 'react-redux';
 
 class Main extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          cart:false
+          cart:false,
+          allCategories: [{}]
         };
+    }
+
+    componentDidMount(){
+        client
+			.query({
+				query: GET_CATEGORY_NAMES
+			})
+			.then((result) => {
+                console.log(result.data.categories)
+				this.setState({
+                    allCategories: result.data.categories,
+                });
+			});
     }
 
     handleOpenCart = () =>{
@@ -25,7 +42,10 @@ class Main extends React.Component{
                     cartOpen={this.handleOpenCart} 
                 />
                 <div className={styles.title}>
-                    <span>{this.props.category}</span>
+                    <span>
+                        {this.state.allCategories.length > 1 && 
+                         this.state.allCategories[this.props.activeCategory].name}
+                    </span>
                 </div>
                 <ItemFrame
                     category={this.props.category} 
@@ -35,4 +55,14 @@ class Main extends React.Component{
         )
     }
 }
-export default Main;
+
+const mapStateToProps = state => {
+    return{
+        activeCategory: state.activeStuff.category,
+    }
+};
+
+
+export default connect(
+    mapStateToProps
+    )(Main);

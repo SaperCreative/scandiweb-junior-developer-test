@@ -5,6 +5,7 @@ import { GET_CATEGORY_NAMES } from "../../utils/queries";
 import wrapNavigate from '../../utils/wrapNavigate'
 import { connect } from "react-redux";
 import { setCategory } from "../../redux/activeStuff";
+
 class NavLinks extends React.Component {
     handleToCategory = (index) => {
         this.props.navigation(`/`);
